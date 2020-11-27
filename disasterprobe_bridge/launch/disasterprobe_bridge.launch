@@ -1,0 +1,13 @@
+<launch>
+  <arg name="namespace" default="disasterprobe" />
+
+  <group ns="$(arg namespace)">
+    <node name="disasterprobe_bridge" pkg="disasterprobe_bridge" type="disasterprobe_bridge.py" output="screen" required="true">
+      <param name="video_input" value="rtmp://localhost/live" />
+      <!-- <param name="video_input" value="/home/anne/Downloads/pep_native1.mp4" /> -->
+      <param name="resize_video" value="true" />
+      <param name="resize_width" value="959" />
+      <param name="resize_height" value="720" />
+    </node>
+  </group>
+</launch>
