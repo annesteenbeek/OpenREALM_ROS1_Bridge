@@ -15,15 +15,16 @@
     <arg name="topic_mosaic" default="/realm/$(arg camera_id)/mosaicing/frame"/>
 
     <node pkg="rosbag" type="play" name="player" output="screen" args="--clock -s 50 /mnt/dataLinux/datasets/nijeholtpade_nadir_timesync.bag" />  
+    <!-- <node pkg="rosbag" type="play" name="player" output="screen" args="-clock -r 0.7 -s 20  /mnt/dataLinux/datasets/nijeholtpade_nadir_fall.bag" />   -->
 
-    <!-- <group ns="disasterprobe">
-        <node name="disasterprobe_bridge" pkg="disasterprobe_bridge" type="disasterprobe_bridge.py" output="screen" required="true">
-        <param name="video_input" value="rtmp://localhost/live" />
-        <param name="resize_video" value="true" />
-        <param name="resize_width" value="959" />
-        <param name="resize_height" value="720" />
-        </node>
-    </group> -->
+    <!-- <group ns="disasterprobe"> -->
+        <!-- <node name="disasterprobe_bridge" pkg="disasterprobe_bridge" type="disasterprobe_bridge.py" output="screen" required="true"> -->
+        <!-- <param name="video_input" value="rtmp://localhost/live" /> -->
+        <!-- <param name="resize_video" value="true" /> -->
+        <!-- <param name="resize_width" value="959" /> -->
+        <!-- <param name="resize_height" value="720" /> -->
+        <!-- </node> -->
+    <!-- </group> -->
 
     <node pkg="realm_ros" type="realm_ros_grabber" name="realm_ros_grabber" output="screen">
         <param name="config/id" type="string" value="$(arg camera_id)"/>
@@ -35,6 +36,7 @@
         <param name="topic/out" type="string" value="$(arg topic_out_adapter)"/>
     </node>
 
+    <!-- <node pkg="realm_ros" type="realm_stage_node" name="realm_pose_estimation" output="screen" launch-prefix="xterm -e gdb -ex run -args"> -->
     <node pkg="realm_ros" type="realm_stage_node" name="realm_pose_estimation" output="screen">
         <param name="stage/type" type="string" value="pose_estimation"/>
 	    <param name="stage/master" type="bool" value="true"/>
@@ -43,6 +45,7 @@
         <param name="config/id" type="string" value="$(arg camera_id)"/>
         <param name="config/profile" type="string" value="mavic_reco"/>
         <param name="config/method" type="string" value="orb_slam2"/>
+        <!-- <param name="config/method" type="string" value="open_vslam"/> -->
     </node>
 
     <node pkg="realm_ros" type="realm_stage_node" name="realm_densification" output="screen">

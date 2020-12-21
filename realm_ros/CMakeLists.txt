@@ -52,7 +52,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 # Fix to avoid OpenCV package confusion with ROS melodic
-find_package(OpenCV 3.4.2 EXACT REQUIRED)
+find_package(OpenCV 3.3.1 REQUIRED)
 # if (NOT OpenCV_FOUND)
     # find_package(OpenCV 3 REQUIRED)
 # endif()
