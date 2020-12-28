@@ -138,7 +138,7 @@ RUN set -ex \
 # Finally install OpenREALM Librararies
 RUN set -ex \
     && cd ~ && mkdir OpenREALM && cd OpenREALM \
-    && git clone --branch master https://github.com/annesteenbeek/OpenREALM.git \
+    && git clone --branch disasterprobe https://github.com/annesteenbeek/OpenREALM.git \
     && cd OpenREALM && OPEN_REALM_DIR=$(pwd) \
     && cd $OPEN_REALM_DIR && mkdir build && cd build && cmake -DTESTS_ENABLED=ON .. \
     && make -j $(nproc --all) && make install
