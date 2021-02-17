@@ -1,0 +1,9 @@
+<launch>
+  <arg name="namespace" default="disasterprobe" />
+
+  <group ns="$(arg namespace)">
+    <node name="disasterprobe_bridge" pkg="disasterprobe_bridge" type="vehicle_detection.py" output="screen" required="true">
+      <!-- <param name="resize_height" value="720" /> -->
+    </node>
+  </group>
+</launch>

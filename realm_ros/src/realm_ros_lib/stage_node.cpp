@@ -208,7 +208,7 @@ void StageNode::linkStageTransport()
   _stage->registerPoseTransport(transport_pose);
   _stage->registerPointCloudTransport(transport_pointcloud);
   _stage->registerImageTransport(transport_img);
-  _stage->registerDepthMapTransport(transport_img);
+  _stage->registerDepthMapTransport(transport_depth);
   _stage->registerMeshTransport(transport_mesh);
   _stage->registerCvGridMapTransport(transport_cvgridmap);
 }
