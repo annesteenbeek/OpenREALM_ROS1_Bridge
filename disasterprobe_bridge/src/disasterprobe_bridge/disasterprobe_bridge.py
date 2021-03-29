@@ -16,6 +16,7 @@ from cv_bridge import CvBridge, CvBridgeError
 FPS = 20
 
 capture = None
+should_run = True
 sio = socketio.Client()
 
 def utc_to_rostime(utc_timestamp):
@@ -61,6 +62,11 @@ def UAVState(data):
 
     gnss_pub.publish(gnss_msg)
     rel_alt_pub.publish(rel_alt)
+
+@sio.event
+def endMission(data):
+  global should_run
+  should_run = False
 
   
 """
@@ -167,5 +173,5 @@ if __name__ == '__main__':
 
   sio.connect("http://localhost:3004", headers={'clienttype': 'ROS'})
 
-  rospy.spin()
-    
+  while should_run:
+    time.sleep(1)

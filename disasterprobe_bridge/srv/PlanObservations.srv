@@ -1,0 +1,4 @@
+geometry_msgs/Pose[] vehicles
+realm_msgs/CvGridMap map
+---
+geometry_msgs/Pose[] vehicles

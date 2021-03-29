@@ -62,6 +62,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_subdirectory(realm_msgs)
 add_subdirectory(realm_ros)
 add_subdirectory(realm_rviz_plugin)
+add_subdirectory(disasterprobe_bridge)
 
 
 ################################################################################

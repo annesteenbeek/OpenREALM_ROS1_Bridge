@@ -27,6 +27,12 @@
         <!-- </node> -->
     </group>
 
+    <!-- <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+		<param name="resolution" value="0.05" />
+		<param name="frame_id" type="string" value="utm" />
+		<remap from="cloud_in" to="/realm/alexa/densification/pointcloud" />
+	</node> -->
+
     <node pkg="realm_ros" type="realm_ros_grabber" name="realm_ros_grabber" output="screen">
         <param name="config/id" type="string" value="$(arg camera_id)"/>
         <param name="config/profile" type="string" value="mavic_reco"/>
